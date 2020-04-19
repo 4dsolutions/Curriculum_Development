@@ -21,3 +21,6 @@ def pascal(n):
 def get_coasters():
     coasters = pd.read_csv("./data/roller_coasters.csv")
     return coasters
+
+def z_score(x, mu, sigma, n=1):
+    return (x - mu)/(sigma/math.sqrt(n))
