@@ -11,8 +11,19 @@ https://docs.python.org/3/library/typing.html
 
 from typing import Sequence
 import pandas as pd
-
+from itertools import product
 from math import factorial, sqrt
+from random import shuffle
+
+def deck_of_cards(shuffled = True):
+    face_cards = ['Ace', 'King', 'Queen', 'Jack']
+    numb_cards = [str(i) for i in range(2, 11)]
+    suits      = ['Hearts', 'Diamonds', 'Spades', 'Clubs']
+    # match every card with every suit
+    cards = list(product(face_cards + numb_cards, suits)) 
+    if shuffled:
+        shuffle(cards)
+    return cards
 
 def mean(iterable : Sequence) -> float:
     return sum(iterable)/len(iterable)
@@ -45,3 +56,4 @@ def get_coasters():
 
 def z_score(x, mu, sigma, n=1):
     return (x - mu)/(sigma/sqrt(n))
+
